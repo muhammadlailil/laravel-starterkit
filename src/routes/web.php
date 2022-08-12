@@ -54,18 +54,23 @@ Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware'
             });
         });
 
-        //loop cms modul
-        $moduls = CmsModuls::whereType('module')->get();
-        foreach ($moduls as $row) {
-            Route::group(['prefix' => $row->path, 'as' => "$row->route_prefix.", 'controller' => "\App\Http\Controllers\Admin\\$row->controller"], function () {
-                Route::get('/', 'index')->name('index');
-                Route::get('/add', 'add')->name('add');
-                Route::get('/edit/{id}', 'edit')->name('edit');
-                Route::post('/save', 'save')->name('save');
-                Route::delete('/delete/{id}', 'delete')->name('delete');
-                Route::delete('/bulk-delete', 'bulkdelete')->name('bulk-delete');
-            });
+        try {
+            //loop cms modul
+            $moduls = CmsModuls::whereType('module')->get();
+            foreach ($moduls as $row) {
+                Route::group(['prefix' => $row->path, 'as' => "$row->route_prefix.", 'controller' => "\App\Http\Controllers\Admin\\$row->controller"], function () {
+                    Route::get('/', 'index')->name('index');
+                    Route::get('/add', 'add')->name('add');
+                    Route::get('/edit/{id}', 'edit')->name('edit');
+                    Route::post('/save', 'save')->name('save');
+                    Route::delete('/delete/{id}', 'delete')->name('delete');
+                    Route::delete('/bulk-delete', 'bulkdelete')->name('bulk-delete');
+                });
+            }
+        } catch (Exception $e) {
+    
         }
+        
     });
 
 });
