@@ -1,0 +1,21 @@
+{
+    "name": "laililmahfud/starterkit",
+    "description": "Starterpack package for laravel project",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Laililmahfud\\Starterkit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "laililmahfud",
+            "email": "laililmahvut@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3"
+    }
+}

@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Models\[modelName];
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\[modelName]Request;
+
+class [controllerName] extends Controller
+{
+    private $page_title = '[pageTitle]';
+
+    public function index([modelName]Request $request)
+    {
+        return aview('[routePrefix].index', [
+            'page_title' => $this->page_title,
+            'columns' => $request->columns(),
+            'data' => $request->dataTable(),
+            'table_action' => [button_table_action],
+            'btn_bulk' => [button_bulk_action],
+            'btn_add' => [button_add],
+            'btn_filter' => [button_filter],
+            'btn_import' => [button_import],
+            'btn_export' => [button_export],
+        ]);
+    }
+
+    public function add(Request $request)
+    {
+        return aview('[routePrefix].form', [
+            'page_title' => $this->page_title,
+            'data' => new [modelName](),
+        ]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        return aview('[routePrefix].form', [
+            'page_title' => $this->page_title,
+            'data' => [modelName]::findOrFail($id),
+        ]);
+    }
+
+    public function save([modelName]Request $request)
+    {
+        $request->save();
+        return to_route('admin.[routePrefix].index', ['success_message' => 'Data has been saved']);
+    }
+
+    public function delete([modelName]Request $request, $id)
+    {
+        $[modelName] = [modelName]::findOrFail($id);
+        delete_file($[modelName]->icon);
+
+        $[modelName]->delete();
+        return to_route('admin.[routePrefix].index', ['success_message' => 'Data has been deleted']);
+    }
+
+    public function bulkdelete(Request $request)
+    {
+        [modelName]::destroy($request->id_selected);
+        return to_route('admin.[routePrefix].index', ['success_message' => 'Data has been deleted']);
+    }
+}

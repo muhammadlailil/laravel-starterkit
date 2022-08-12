@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Requests\Admin;
+
+use App\Models\[modelName];
+use Illuminate\Foundation\Http\FormRequest;
+
+class [modelName]Request extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+    public function rules()
+    {
+        return [];
+    }
+
+    public function columns()
+    {
+        return [requestColumns];
+    }
+
+    public function dataTable()
+    {
+        $sortby = $this->sortby ?? 'created_at';
+        $sorting = $this->sorting ?? 'desc';
+        $search = $this->search ?? '';
+        $limit = $this->limit ?? 10;
+
+        return [defaultQuery]
+            ->orderBy($sortby, $sorting)
+            ->paginate($limit);
+    }
+
+    public function save()
+    {
+        [requestValidate]
+        $this->validate($validation);
+        
+        [requestFormData]
+        [modelName]::updateOrCreate(['id' => $this->id], $formData);
+    }
+}
