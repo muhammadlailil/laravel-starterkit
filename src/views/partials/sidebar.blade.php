@@ -41,7 +41,7 @@ $routeName = \Request::route()->getName();
                         <p>{{$row->name}}</p>
                         <span class="caret ms-Icon ms-Icon--ChevronDownMed caret-custom-important"></span>
                     </a>
-                    <div id="{{$row->id}}-nav" class="collapse {{(str_contains($routeName,'admin.'.$sub->route_prefix))?'show':''}}">
+                    <div id="{{$row->id}}-nav" class="collapse {{(str_contains($routeName,'admin.'.$row->route_prefix))?'show':''}}">
                         <ul class="nav nav-collapse">
                             @foreach($row->sub_menu as $sub)
                             <li class=" {{ (request()->is($sub->path.'*')) ? 'active' : '' }}">

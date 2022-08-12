@@ -11,10 +11,7 @@ use Laililmahfud\Starterkit\Request\CmsPrivilegesRequest;
 class AdminCmsPrivilegesController extends Controller
 {
     private $page_title = 'Role Management';
-    public function __construct()
-    {
-        onlySuperadmin();
-    }
+    
     public function index(CmsPrivilegesRequest $request)
     {
         return sview('cms-roles.index', [

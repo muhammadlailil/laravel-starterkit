@@ -12,11 +12,6 @@ use Laililmahfud\Starterkit\Request\CmsModulsRequest;
 
 class AdminCmsModulsController extends Controller
 {
-    public function __construct()
-    {
-        onlySuperadmin();
-    }
-
     public function index(Request $request)
     {
         return sview('cms-moduls.index', [

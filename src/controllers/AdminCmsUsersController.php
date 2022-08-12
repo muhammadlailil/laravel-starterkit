@@ -12,11 +12,6 @@ use Laililmahfud\Starterkit\Request\CmsUsersRequest;
 class AdminCmsUsersController extends Controller
 {
     private $page_title = 'Users Management';
-
-    public function __construct()
-    {
-        onlySuperadmin();
-    }
     
     public function index(CmsUsersRequest $request)
     {

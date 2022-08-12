@@ -11,11 +11,6 @@ use Laililmahfud\Starterkit\Request\CmsMenusRequest;
 
 class AdminCmsMenusController extends Controller
 {
-    public function __construct()
-    {
-        onlySuperadmin();
-    }
-
     public function index(Request $request)
     {
         return sview('cms-menus.index', [
