@@ -3,7 +3,8 @@
 # STARTERKIT - Laravel Personal Starterkit
 
 ## Instalation 
- - <code>composer require laililmahfud/starterkit</code>
+ - Instal starterkit package <br>
+ <code>composer require laililmahfud/starterkit</code>
  - Setting database connection on .env
  - Install Startertkit <br>
   <code>php artisan starterkit:install</code>
