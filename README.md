@@ -6,6 +6,8 @@
  - Instal starterkit package <br>
  <code>composer require laililmahfud/starterkit</code>
  - Setting database connection on .env
+ - Adds starterkit provider on config/app.php <br>
+ <code>\Laililmahfud\Starterkit\LaililMahfudStarterkitServiceProvider::class</code>
  - Install Startertkit <br>
   <code>php artisan starterkit:install</code>
  - Open browser and go to project root url

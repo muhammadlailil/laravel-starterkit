@@ -23,6 +23,7 @@ class CreateCmsModulsTable extends Migration
             $table->integer('sorting');
             $table->string('table');
             $table->string('controller');
+            $table->string('route_prefix');
             $table->string('type');
             $table->string('module_action');
         });
