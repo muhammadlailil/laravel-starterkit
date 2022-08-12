@@ -25,7 +25,6 @@ class CreateCmsModulsTable extends Migration
             $table->string('controller');
             $table->string('route_prefix');
             $table->string('type');
-            $table->string('module_action');
         });
     }
 

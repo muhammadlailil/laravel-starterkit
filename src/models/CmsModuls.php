@@ -13,5 +13,5 @@ class CmsModuls extends Model
 
     public $timestamps = false;
     protected $table = 'cms_moduls';
-    protected $fillable = ['name', 'icon','path','parent_id','sorting','table','controller','route_prefix','type','module_action'];
+    protected $fillable = ['name', 'icon','path','parent_id','sorting','table','controller','route_prefix','type'];
 }
