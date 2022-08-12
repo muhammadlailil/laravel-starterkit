@@ -19,7 +19,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
         require __DIR__ . '/helpers/Helper.php';
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Starterkit', 'Laililmahfud\Starterkit\Helpers\Starterkit');
-        $loader->alias('JsonResponse', 'Laililmahfud\Starterkit\Helpers\JsonResponse');
+        $loader->alias('JsonResponse', 'Laililmahfud\Starterkit\Helpers\JsonResponse');   
     }
 
     /**
@@ -32,7 +32,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
         // $kernel->appendMiddleware(\Illuminate\Session\Middleware\StartSession::class); 
 
         $this->loadViewsFrom(__DIR__ . '/views', 'starterkit');
-        $this->publishes([__DIR__ . '/config/starterkit.php' => config_path('starterkit.php')], 'starterkit');
+        $this->publishes([__DIR__ . '/config/starterkit.php' => config_path('starterkit.php')], 'starterkit_config');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->commands([
@@ -45,7 +45,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
         ]);
         $this->publishes([
             __DIR__ . '/assets' => public_path('vendor/starterkit'),
-        ], 'starterkit-asset');
+        ], 'starterkit_asset');
         
     }
 }

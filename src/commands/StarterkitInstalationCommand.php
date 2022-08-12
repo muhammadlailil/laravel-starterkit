@@ -43,6 +43,9 @@ class StarterkitInstalationCommand extends Command
             require_once __DIR__.'/../database/seeders/StarterkitSeeder.php';
         }
         $this->call('db:seed', ['--class' => 'Laililmahfud\Starterkit\Database\Seeders\StarterkitSeeder']);
+        $this->call('vendor:publish', ['--provider' => 'Laililmahfud\Starterkit\LaililMahfudStarterkitServiceProvider']);
+        $this->call('vendor:publish', ['--tag' => 'starterkit_config', '--force' => true]);
+        $this->call('vendor:publish', ['--tag' => 'starterkit_asset', '--force' => true]);
         $this->info('Login infromation');
         $this->info('username : admin@starterkit.com');
         $this->info('password : 12345678');
