@@ -34,6 +34,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/views', 'starterkit');
         $this->publishes([__DIR__ . '/config/starterkit.php' => config_path('starterkit.php')], 'starterkit_config');
+        $this->publishes([__DIR__ . '/routes/starterkit_api.php' => base_path('routes/starterkit_api.php')], 'starterkit_api_routes');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
