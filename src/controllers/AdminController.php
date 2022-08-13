@@ -12,6 +12,9 @@ class AdminController extends Controller
 {
     public function getLogin(Request $request)
     {
+        if(auth_user()){
+            return to_route('admin.index');
+        }
         return sview('auth.login',[
             'page_title' => 'Login'
         ]);

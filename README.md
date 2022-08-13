@@ -14,3 +14,6 @@
  - Login access <br>
   <code>username : admin@starterkit.com</code><br>
   <code>password : 12345678</code>
+
+## Note
+- All of table primary key must use uuid and name is id

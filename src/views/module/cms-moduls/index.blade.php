@@ -25,7 +25,7 @@
                 </li>
             </ul>
             <div class="card full-height">
-               <form action="{{route('admin.cms-moduls.save')}}" method="post">
+               <form action="{{route('admin.cms-moduls.save')}}" method="post" class="formModules">
                 @csrf
                 <div class="tab-content" id="moduleGeneratorTabsContent">
                     <div class="tab-pane fade show active" id="step1" role="tabpanel" aria-labelledby="step1-tab">
@@ -51,6 +51,13 @@
         let lastSelectedTableValuestep3 = null;
         let refresForm = false;
         $(function () {
+            $('.formModules').on('keyup keypress', function(e) {
+                var keyCode = e.keyCode || e.which;
+                if (keyCode === 13) { 
+                    e.preventDefault();
+                    return false;
+                }
+            });
             $(document).on('click', '.btn-delete-table-form', function () {
                 $(this).parent().parent('tr').remove();
             })
