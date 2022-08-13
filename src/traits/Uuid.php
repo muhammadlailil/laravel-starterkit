@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Laililmahfud\Starterkit\Traits;
+namespace laililmahfud\starterkit\traits;
 
 use Illuminate\Support\Str;
 trait Uuid

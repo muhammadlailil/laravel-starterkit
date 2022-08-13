@@ -1,9 +1,9 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Models;
+namespace laililmahfud\starterkit\models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laililmahfud\Starterkit\Traits\Uuid;
+use laililmahfud\starterkit\traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CmsNotification extends Model

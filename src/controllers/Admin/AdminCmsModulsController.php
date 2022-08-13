@@ -1,14 +1,13 @@
 <?php
-namespace Laililmahfud\Starterkit\controllers;
+namespace laililmahfud\starterkit\controllers\Admin;
 
 
-use App\Helpers\PAR;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
-use Laililmahfud\Starterkit\helpers\JsonResponse;
-use Laililmahfud\Starterkit\Request\CmsModulsRequest;
+use laililmahfud\starterkit\helpers\Starterkit;
+use laililmahfud\starterkit\helpers\JsonResponse;
+use laililmahfud\starterkit\request\CmsModulsRequest;
 
 class AdminCmsModulsController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
-namespace Laililmahfud\Starterkit\Request;
+namespace laililmahfud\starterkit\request;
 
 
 use Illuminate\Foundation\Http\FormRequest;
-use Laililmahfud\Starterkit\Models\CmsPrivileges;
-use Laililmahfud\Starterkit\Models\CmsPrivilegesRoles;
+use laililmahfud\starterkit\models\CmsPrivileges;
+use laililmahfud\starterkit\models\CmsPrivilegesRoles;
 
 class CmsPrivilegesRequest extends FormRequest
 {

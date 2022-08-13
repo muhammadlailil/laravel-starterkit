@@ -1,13 +1,13 @@
 <?php
-namespace Laililmahfud\Starterkit\controllers;
+namespace laililmahfud\starterkit\controllers\Admin;
 
 
 use App\Helpers\PAR;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
-use Laililmahfud\Starterkit\Request\CmsMenusRequest;
+use laililmahfud\starterkit\helpers\Starterkit;
+use laililmahfud\starterkit\request\CmsMenusRequest;
 
 class AdminCmsMenusController extends Controller
 {

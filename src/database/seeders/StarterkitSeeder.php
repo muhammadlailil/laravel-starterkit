@@ -1,11 +1,11 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Database\Seeders;
+namespace laililmahfud\starterkit\database\seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Laililmahfud\Starterkit\Models\CmsPrivileges;
-use Laililmahfud\Starterkit\Models\CmsUsers;
+use laililmahfud\starterkit\models\CmsUsers;
+use laililmahfud\starterkit\models\CmsPrivileges;
 
 class StarterkitSeeder extends Seeder
 {

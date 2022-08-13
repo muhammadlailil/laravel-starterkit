@@ -1,6 +1,6 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Commands;
+namespace laililmahfud\starterkit\commands;
 
 use Illuminate\Console\Command;
 

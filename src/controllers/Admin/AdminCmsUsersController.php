@@ -1,13 +1,13 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Controllers;
+namespace laililmahfud\starterkit\controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Laililmahfud\Starterkit\Models\CmsUsers;
-use Laililmahfud\Starterkit\Models\CmsPrivileges;
-use Laililmahfud\Starterkit\Request\CmsUsersRequest;
+use laililmahfud\starterkit\models\CmsUsers;
+use laililmahfud\starterkit\models\CmsPrivileges;
+use laililmahfud\starterkit\request\CmsUsersRequest;
 
 class AdminCmsUsersController extends Controller
 {

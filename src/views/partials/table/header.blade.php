@@ -1,24 +1,32 @@
 <div class="card-header">
     <div class="row">
         <div class="col-sm-4">
-            @if(canDelete())
-            @if(!isset($btn_bulk) || $btn_bulk)
             <div class="bulk-action pull-left">
-                <button type="button" class="btn btn-default btn-sm btn-action-selected" data-toggle="dropdown"
-                    aria-expanded="false">
-                    Bulk Action &nbsp; <span
-                        class="caret ms-Icon ms-Icon--ChevronDownMed caret-custom-important"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-bulk">
-                    <li>
-                        <a href="javascript:void(0)" onclick="bulkDeleteSelected()" class="dropdown-item">
-                            Hapus Terpilih
-                        </a>
-                    </li>
-                </ul>
+                @if(canDelete())
+                    @if(!isset($btn_bulk) || $btn_bulk)
+                        <button type="button" class="btn btn-default btn-sm btn-action-selected" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Bulk Action &nbsp; <span
+                                class="caret ms-Icon ms-Icon--ChevronDownMed caret-custom-important"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-bulk">
+                            <li>
+                                <a href="javascript:void(0)" onclick="bulkDeleteSelected()" class="dropdown-item">
+                                    Hapus Terpilih
+                                </a>
+                            </li>
+                        </ul>
+                    @endif
+                @endif
+                @if(isset($button))
+                @foreach($button as $i=> $addbutton)
+                    <a href="{{$addbutton->href}}" class="{{$addbutton->class}} btn-sm">
+                        {{$addbutton->text}}
+                        <span class="{{$addbutton->icon}}"></span> 
+                    </a>
+                @endforeach
+                @endif
             </div>
-            @endif
-            @endif
             <div class="filter-action">
                 @if(isset($btn_filter) && $btn_filter)
                 <a href="javascript:;" class="btn btn-default btn-sm">

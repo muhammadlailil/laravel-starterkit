@@ -27,7 +27,7 @@
 
     </div>
 
-    <br><br>
+    <!-- <br><br>
     <div class="config">
         <b>Pengaturan Akses</b>
         <div class="row" style="margin: 0px">
@@ -106,7 +106,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="card-footer">
     <div class="col-sm-7 row">

@@ -1,5 +1,5 @@
 <?php
-namespace Laililmahfud\Starterkit\helpers;
+namespace laililmahfud\starterkit\helpers;
 
 class JsonResponse
 {

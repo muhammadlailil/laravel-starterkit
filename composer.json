@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Laililmahfud\\Starterkit\\": "src/"
+            "laililmahfud\\starterkit\\": "src/"
         }
     },
     "authors": [
@@ -18,7 +18,7 @@
     "require": {
         "php": ">=7.3",
         "barryvdh/laravel-dompdf": "^2.0",
-        "firebase/php-jwt": "^6.2",
+        "firebase/php-jwt": "^6.3",
         "maatwebsite/excel": "^3.1"
     }
 }

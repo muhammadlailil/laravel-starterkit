@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Laililmahfud\Starterkit\Traits\Uuid;
+use laililmahfud\starterkit\traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

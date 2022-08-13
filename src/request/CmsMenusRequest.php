@@ -1,8 +1,8 @@
 <?php
-namespace Laililmahfud\Starterkit\Request;
+namespace laililmahfud\starterkit\request;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Laililmahfud\Starterkit\Models\CmsModuls;
+use laililmahfud\starterkit\models\CmsModuls;
 
 class CmsMenusRequest extends FormRequest
 {

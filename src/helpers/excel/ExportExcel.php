@@ -1,5 +1,5 @@
 <?php
-namespace Laililmahfud\Starterkit\Helpers\excel;
+namespace laililmahfud\starterkit\helpers\excel;
 
 
 use Illuminate\Contracts\View\View;

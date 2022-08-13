@@ -17,7 +17,6 @@ class [controllerName] extends Controller
             'page_title' => $this->page_title,
             'columns' => $request->columns(),
             'data' => $request->dataTable(),
-            'table_action' => [button_table_action],
         ]);
     }
 

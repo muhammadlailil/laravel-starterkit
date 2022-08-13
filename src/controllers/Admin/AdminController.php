@@ -1,12 +1,12 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Controllers;
+namespace laililmahfud\starterkit\controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Laililmahfud\Starterkit\Models\CmsUsers;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
+use laililmahfud\starterkit\models\CmsUsers;
+use laililmahfud\starterkit\helpers\Starterkit;
 
 class AdminController extends Controller
 {
@@ -15,7 +15,7 @@ class AdminController extends Controller
         if(auth_user()){
             return to_route('admin.index');
         }
-        return sview('auth.login',[
+        return view(config('starterkit.admin_login_view'),[
             'page_title' => 'Login'
         ]);
     }

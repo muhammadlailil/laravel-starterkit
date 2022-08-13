@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Laililmahfud\Starterkit\Helpers\excel;
+namespace laililmahfud\starterkit\helpers\excel;
 
 
 use Maatwebsite\Excel\Concerns\ToModel;

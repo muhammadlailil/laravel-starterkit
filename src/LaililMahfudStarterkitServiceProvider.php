@@ -1,11 +1,11 @@
 <?php
 
-namespace Laililmahfud\Starterkit;
+namespace laililmahfud\starterkit;
 
 use Illuminate\Support\ServiceProvider;
-use Laililmahfud\Starterkit\Components\AdminLayout;
-use Laililmahfud\Starterkit\Components\BlankLayout;
-use Laililmahfud\Starterkit\Commands\StarterkitInstalationCommand;
+use laililmahfud\starterkit\components\AdminLayout;
+use laililmahfud\starterkit\components\BlankLayout;
+use laililmahfud\starterkit\commands\StarterkitInstalationCommand;
 
 class LaililMahfudStarterkitServiceProvider extends ServiceProvider
 {
@@ -18,8 +18,8 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
     {
         require __DIR__ . '/helpers/Helper.php';
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('Starterkit', 'Laililmahfud\Starterkit\Helpers\Starterkit');
-        $loader->alias('JsonResponse', 'Laililmahfud\Starterkit\Helpers\JsonResponse');   
+        $loader->alias('Starterkit', 'laililmahfud\starterkit\helpers\Starterkit');
+        $loader->alias('JsonResponse', 'laililmahfud\starterkit\helpers\JsonResponse');   
     }
 
     /**
@@ -34,6 +34,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/views', 'starterkit');
         $this->publishes([__DIR__ . '/config/starterkit.php' => config_path('starterkit.php')], 'starterkit_config');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->commands([
             StarterkitInstalationCommand::class,

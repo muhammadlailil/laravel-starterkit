@@ -1,12 +1,12 @@
 <?php
-namespace Laililmahfud\Starterkit\controllers;
+namespace laililmahfud\starterkit\controllers\Admin;
 
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
-use Laililmahfud\Starterkit\Models\CmsPrivileges;
-use Laililmahfud\Starterkit\Request\CmsPrivilegesRequest;
+use laililmahfud\starterkit\helpers\Starterkit;
+use laililmahfud\starterkit\models\CmsPrivileges;
+use laililmahfud\starterkit\request\CmsPrivilegesRequest;
 
 class AdminCmsPrivilegesController extends Controller
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Laililmahfud\Starterkit\Request;
+namespace laililmahfud\starterkit\request;
 
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Http\FormRequest;
-use Laililmahfud\Starterkit\Models\CmsUsers;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
+use laililmahfud\starterkit\models\CmsUsers;
+use laililmahfud\starterkit\helpers\Starterkit;
 
 class CmsUsersRequest extends FormRequest
 {

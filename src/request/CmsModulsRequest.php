@@ -1,10 +1,10 @@
 <?php
-namespace Laililmahfud\Starterkit\Request;
+namespace laililmahfud\starterkit\request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
-use Laililmahfud\Starterkit\Helpers\Starterkit;
-use Laililmahfud\Starterkit\Models\CmsModuls;
+use laililmahfud\starterkit\helpers\Starterkit;
+use laililmahfud\starterkit\models\CmsModuls;
 
 class CmsModulsRequest extends FormRequest
 {
@@ -211,4 +211,26 @@ class CmsModulsRequest extends FormRequest
         $defaultQuery = "".$modelName.'::'.$allQuery."";
         return $defaultQuery;
     }
+
+//     public function tes(){
+//         $prefix = 'unit';
+//         $path = 'unit';
+//         $controller = "AdminUnitController";
+//         $routeWeb = file_get_contents(base_path('routes/web.php'));
+//         $appendRoute = "Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware' => ['web',\Laililmahfud\Starterkit\Middleware\AdminMiddleware::class]], function () {
+//     Route::group(['prefix' => '".$path."', 'as' => '".$prefix."', 'controller' => '\App\Http\Controllers\Admin\\".$controller."'], function () {
+//         Route::get('/', 'index')->name('index');
+//         Route::get('/add', 'add')->name('add');
+//         Route::get('/edit/{id}', 'edit')->name('edit');
+//         Route::post('/save', 'save')->name('save');
+//         Route::delete('/delete/{id}', 'delete')->name('delete');
+//         Route::delete('/bulk-delete', 'bulkdelete')->name('bulk-delete');
+//     });
+
+//     // [newAdminRoute]
+// });";
+//         $controllerTemplate = str_replace('// [newAdminRoute]', $appendRoute, $routeWeb);
+//         file_put_contents(base_path("routes/web.php"), $controllerTemplate);
+//         dd($routeWeb);
+//     }
 }

@@ -1,13 +1,13 @@
 <?php
-namespace Laililmahfud\Starterkit\Helpers;
+namespace laililmahfud\starterkit\helpers;
 
 
 use App\Helpers\excel\ExportExcel;
 use Illuminate\Support\Facades\App;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Request;
-use Laililmahfud\Starterkit\Models\CmsModuls;
-use Laililmahfud\Starterkit\Models\CmsPrivilegesRoles;
+use laililmahfud\starterkit\models\CmsModuls;
+use laililmahfud\starterkit\models\CmsPrivilegesRoles;
 
 class Starterkit
 {

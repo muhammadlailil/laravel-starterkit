@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Laililmahfud\Starterkit\Models\CmsModuls;
-use Laililmahfud\Starterkit\Middleware\AdminMiddleware;
-use Laililmahfud\Starterkit\Controllers\AdminController;
-use Laililmahfud\Starterkit\Middleware\SuperAdminMiddleware;
-use Laililmahfud\Starterkit\controllers\AdminCmsMenusController;
-use Laililmahfud\Starterkit\Controllers\AdminCmsUsersController;
-use Laililmahfud\Starterkit\controllers\AdminCmsModulsController;
-use Laililmahfud\Starterkit\controllers\AdminCmsPrivilegesController;
+use laililmahfud\starterkit\models\CmsModuls;
+use laililmahfud\starterkit\middleware\AdminMiddleware;
+use laililmahfud\starterkit\controllers\Admin\AdminController;
+use laililmahfud\starterkit\Middleware\SuperAdminMiddleware;
+use laililmahfud\starterkit\controllers\Admin\AdminCmsMenusController;
+use laililmahfud\starterkit\controllers\Admin\AdminCmsUsersController;
+use laililmahfud\starterkit\controllers\Admin\AdminCmsModulsController;
+use laililmahfud\starterkit\controllers\Admin\AdminCmsPrivilegesController;
 
 Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware' => ['web']], function () {
 
@@ -73,4 +73,8 @@ Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware'
         
     });
 
+});
+
+Route::get('/simlink', function () {
+    return app('files')->link(storage_path('app/public'), public_path('storage'));
 });

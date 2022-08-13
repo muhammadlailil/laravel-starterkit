@@ -1,6 +1,6 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Middleware;
+namespace laililmahfud\starterkit\middleware;
 
 use Closure;
 use Illuminate\Http\Request;

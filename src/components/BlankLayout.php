@@ -1,6 +1,6 @@
 <?php
 
-namespace Laililmahfud\Starterkit\Components;
+namespace laililmahfud\starterkit\components;
 
 use Illuminate\View\Component;
 
