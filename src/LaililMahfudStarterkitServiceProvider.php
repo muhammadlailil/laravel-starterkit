@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use laililmahfud\starterkit\components\AdminLayout;
 use laililmahfud\starterkit\components\BlankLayout;
 use laililmahfud\starterkit\commands\StarterkitInstalationCommand;
+use laililmahfud\starterkit\commands\StarterkitApiGeneratorCommand;
 
 class LaililMahfudStarterkitServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,7 @@ class LaililMahfudStarterkitServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->commands([
             StarterkitInstalationCommand::class,
+            StarterkitApiGeneratorCommand::class,
         ]);
 
         $this->loadViewComponentsAs('starterkit', [

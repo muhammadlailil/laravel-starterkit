@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Firebase\JWT\ExpiredException;
 use Illuminate\Support\Facades\Route;
 use laililmahfud\starterkit\helpers\JwtToken;
-use laililmahfud\starterkit\Constanta\ErrorType;
 use laililmahfud\starterkit\helpers\JsonResponse;
+use laililmahfud\starterkit\middleware\ErrorType;
 
 class ApiMiddleware
 {
@@ -18,7 +18,7 @@ class ApiMiddleware
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, $role='all')
     {
         $token = $request->header('authorization');
         $regid = $request->header('regid');

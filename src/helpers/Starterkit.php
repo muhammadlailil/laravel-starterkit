@@ -5,6 +5,7 @@ namespace laililmahfud\starterkit\helpers;
 use App\Helpers\excel\ExportExcel;
 use Illuminate\Support\Facades\App;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use laililmahfud\starterkit\models\CmsModuls;
 use laililmahfud\starterkit\models\CmsPrivilegesRoles;
@@ -230,6 +231,64 @@ class Starterkit
            }
         }
         return $columns;
+    }
+
+    public static function routeApiController($prefix, $controller)
+    {
+        $prefix = trim($prefix, '/') . '/';
+        $namespace ='App\Http\Controllers\Api';
+
+        try {
+            Route::get($prefix, ['uses' => $controller . '@getIndex', 'as' => $controller . 'GetIndex']);
+
+            $controller_class = new \ReflectionClass($namespace . '\\' . $controller);
+
+            $controller_methods = $controller_class->getMethods(\ReflectionMethod::IS_PUBLIC);
+
+
+            $wildcards = '';
+            foreach ($controller_methods as $method) {
+
+
+                if ($method->class != 'Illuminate\Routing\Controller' && $method->name != 'getIndex') {
+
+
+                    if (substr($method->name, 0, 3) == 'get') {
+
+                        $method_name = substr($method->name, 3);
+                        $slug = array_filter(preg_split('/(?=[A-Z])/', $method_name));
+                        $slug = strtolower(implode('-', $slug));
+                        $slug = ($slug == 'index') ? '' : $slug;
+
+                        $parameter = $method->getParameters();
+                        $wildcards = '';
+                        foreach ($parameter as $q){
+                            $wildcards .= '/{'.$q->name.'}';
+                        }
+
+
+
+                        Route::get($prefix.$slug.$wildcards , ['uses' => $controller . '@' . $method->name, 'as' => $controller . 'Get' . $method_name]);
+                    } elseif (substr($method->name, 0, 4) == 'post') {
+                        $method_name = substr($method->name, 4);
+
+                        $parameter = $method->getParameters();
+                        $wildcards = '';
+                        foreach ($parameter as $q){
+                            $wildcards .= '/{'.$q->name.'}';
+                        }
+
+                        $slug = array_filter(preg_split('/(?=[A-Z])/', $method_name));
+                        Route::post($prefix.strtolower(implode('-', $slug)).$wildcards, [
+                            'uses' => $controller . '@' . $method->name,
+                            'as' => $controller . 'Post' . $method_name,
+                        ]);
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+
+        }
     }
 
 }
