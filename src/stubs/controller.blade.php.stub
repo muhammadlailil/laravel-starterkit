@@ -18,11 +18,6 @@ class [controllerName] extends Controller
             'columns' => $request->columns(),
             'data' => $request->dataTable(),
             'table_action' => [button_table_action],
-            'btn_bulk' => [button_bulk_action],
-            'btn_add' => [button_add],
-            'btn_filter' => [button_filter],
-            'btn_import' => [button_import],
-            'btn_export' => [button_export],
         ]);
     }
 
