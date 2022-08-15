@@ -60,7 +60,7 @@ class StarterkitInstalationCommand extends Command
         }
         $this->call('db:seed', ['--class' => 'Laililmahfud\Starterkit\Database\Seeders\StarterkitSeeder']);
         $this->call('vendor:publish', ['--provider' => 'Laililmahfud\Starterkit\LaililMahfudStarterkitServiceProvider']);
-        $this->call('vendor:publish', ['--tag' => 'starterkit_config']);
+        $this->call('vendor:publish', ['--tag' => 'starterkit_config','--force' => true]);
         $this->call('vendor:publish', ['--tag' => 'starterkit_asset', '--force' => true]);
         $this->call('vendor:publish', ['--tag' => 'starterkit_api_routes']);
         $this->info('Login infromation');

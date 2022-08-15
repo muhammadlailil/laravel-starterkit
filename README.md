@@ -7,7 +7,7 @@
  <code>composer require laililmahfud/starterkit</code>
  - Setting database connection on .env
  - Adds starterkit provider on config/app.php <br>
- <code>\Laililmahfud\Starterkit\LaililMahfudStarterkitServiceProvider::class</code>
+ <code>\laililmahfud\starterkit\LaililMahfudStarterkitServiceProvider::class</code>
  - Install Startertkit <br>
   <code>php artisan starterkit:install</code>
  - Open browser and go to project root url
@@ -17,3 +17,8 @@
 
 ## Note
 - All of table primary key must use uuid and name is id
+
+
+## API Starterkit
+- run command <br>
+<code>php artisan starterkit:api --path=api-url --controller=ApiNameController</code>
