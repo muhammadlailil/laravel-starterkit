@@ -45,7 +45,6 @@ class [controllerName] extends Controller
     public function delete([modelName]Request $request, $id)
     {
         $[modelName] = [modelName]::findOrFail($id);
-        delete_file($[modelName]->icon);
 
         $[modelName]->delete();
         return to_route('admin.[routePrefix].index', ['success_message' => 'Data has been deleted']);
