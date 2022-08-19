@@ -44,4 +44,31 @@ class AdminController extends Controller
         session()->flush();
         return to_route('admin.login');
     }
+
+    public function getProfile(Request $request){
+        return sview('profile',[
+            'page_title' => 'Profile',
+            'page_type' => 'Detail'
+        ]);
+    }
+
+    public function updateProfile(Request $request){
+        $dataUpdate = [
+            'name' => $request->name,
+            'email' => $request->email,
+        ];
+        if ($request->file('profile')) {
+            $dataUpdate = array_merge($dataUpdate, [
+                'profile' => Starterkit::uploadFile($request->file('profile')),
+            ]);
+        }
+        if ($request->password) {
+            $dataUpdate = array_merge($dataUpdate, [
+                'password' => Hash::make($request->password),
+            ]);
+        }
+        CmsUsers::whereId(auth_user()->id)->update($dataUpdate);
+        session()->put('admin_auth', CmsUsers::whereId(auth_user()->id)->first());
+        return to_route('admin.profile', ['success_message' => 'Data profile berhasil diperbarui']);
+    }
 }

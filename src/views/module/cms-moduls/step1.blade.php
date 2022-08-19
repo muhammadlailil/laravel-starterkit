@@ -5,6 +5,8 @@
     <div class="col-sm-7 p-0">
         <x-starterkit::input.select label="Table" name="module_table" class="sumo_select">
             <option value="">Select Table</option>
+            <option value="cms_users">cms_users</option>
+            <option value="cms_notification">cms_notification</option>
             @foreach($table as $row)
             <option value="{{$row->table_name}}">{{$row->table_name}}</option>
             @endforeach

@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use laililmahfud\starterkit\models\CmsModuls;
 use laililmahfud\starterkit\middleware\AdminMiddleware;
-use laililmahfud\starterkit\controllers\Admin\AdminController;
 use laililmahfud\starterkit\Middleware\SuperAdminMiddleware;
+use laililmahfud\starterkit\controllers\Admin\AdminController;
 use laililmahfud\starterkit\controllers\Admin\AdminCmsMenusController;
 use laililmahfud\starterkit\controllers\Admin\AdminCmsUsersController;
 use laililmahfud\starterkit\controllers\Admin\AdminCmsModulsController;
 use laililmahfud\starterkit\controllers\Admin\AdminCmsPrivilegesController;
+use laililmahfud\starterkit\controllers\Admin\AdminCmsNotificationController;
 
 Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware' => ['web']], function () {
 
@@ -21,6 +22,12 @@ Route::group(['prefix' => s_config('admin_path'), 'as' => 'admin.', 'middleware'
         Route::controller(AdminController::class)->group(function () {
             Route::get('/', 'getIndex')->name('index');
             Route::get('/logout', 'getLogout')->name('logout');
+            Route::get('/profile', 'getProfile')->name('profile');
+            Route::post('/profile', 'updateProfile')->name('update-profile');
+        });
+        Route::group(['prefix' => 'cms-notification', 'as' => 'cms-notification.', 'controller' => AdminCmsNotificationController::class], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/read/{id}', 'read')->name('read');
         });
 
         Route::middleware(SuperAdminMiddleware::class)->group(function () {

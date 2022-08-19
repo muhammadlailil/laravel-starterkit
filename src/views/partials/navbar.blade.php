@@ -1,4 +1,7 @@
-
+@php
+    $totalNotification = cmsNotification()->where('is_read',0)->count();
+    $listNotification = cmsNotification()->where('is_read',0)->limit(5)->get();
+@endphp
 <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg">
     <div class="container-fluid">
         <div class="collapse" id="search-nav" style="max-width:unset">
@@ -28,30 +31,36 @@
                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell"></i>
                     <span class="notification">
-                        <span class="totalNotification">2</span>
+                        <span class="totalNotification">{{$totalNotification}}</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
                     <li>
                         <div class="dropdown-title">
+                            @if(count($listNotification))
+                            You have {{$totalNotification}} notification
+                            @else
                             You don't have notification
+                            @endif
                         </div>
                     </li>
                     <div class="listNotificationAdmin">
                         <li>
                             <div class="notif-scroll scrollbar-outer">
                                 <div class="notif-center">
-                                    <a href="">
+                                    @foreach($listNotification as $not)
+                                    <a href="{{route('admin.cms-notification.read',$not->id)}}">
                                         <div class="notif-content">
-                                            <span class="block">lorem ipsum</span>
+                                            <span class="block">{{$not->description}}</span>
                                         </div>
                                     </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </li>
                     </div>
                     <li>
-                        <a class="see-all" href="">See all notifications<i
+                        <a class="see-all" href="{{route('admin.cms-notification.index')}}">See all notifications<i
                                 class="fa fa-angle-right"></i> </a>
                     </li>
                 </ul>
@@ -78,7 +87,7 @@
                         </li>
                         <li>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:;">
+                            <a class="dropdown-item" href="{{route('admin.profile')}}">
                                 Account Setting
                             </a>
                             <div class="dropdown-divider"></div>

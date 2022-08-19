@@ -2,11 +2,30 @@
 
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
+use laililmahfud\starterkit\models\CmsNotification;
 
 if (!function_exists('sview')) {
     function sview($view, $data = [])
     {
         return view('starterkit::module.' . $view, $data);
+    }
+}
+
+if (!function_exists('urlNotif')) {
+    function urlNotif($url)
+    {
+        if(str_contains($url,'http') || str_contains($url,'https')){
+            return $url;
+        }else{
+            return url($url);
+        }
+    }
+}
+
+if (!function_exists('cmsNotification')) {
+    function cmsNotification()
+    {
+        return CmsNotification::where('cms_users_id', auth_user()->id);
     }
 }
 

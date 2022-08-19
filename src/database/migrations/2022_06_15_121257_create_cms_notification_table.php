@@ -18,7 +18,6 @@ class CreateCmsNotificationTable extends Migration
             $table->timestamps();
             $table->text('description');
             $table->boolean('is_read')->default(0);
-            $table->string('detail',80)->nullable();
             $table->string('url')->nullable();
             $table->foreignUuid('cms_users_id')->nullable()->constrained('cms_users')->onDelete('cascade');
         });
